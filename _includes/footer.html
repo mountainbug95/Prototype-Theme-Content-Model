@@ -1,0 +1,25 @@
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        {% if site.footer.social_icons %}
+            <ul class="icons">
+                {% for item in site.footer.social_icons %}
+                    <li><a href="{{ item.url }}" class="icon {{ item.icon }}"><span class="label">{{ item.title }}</span></a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if site.footer.contact_list %}
+            <ul class="contact">
+                {% for line in site.footer.contact_list %}
+                    <li>{{ line.text }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <ul class="links">
+            {% for item in site.menus.footer %}
+                <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+            {% endfor %}
+        </ul>
+        <p class="copyright">{{ site.footer.copyright }}</p>
+    </div>
+</footer>

@@ -1,0 +1,139 @@
+---
+---
+
+// Misc.
+$misc: (
+    z-index-base:		10000
+);
+
+// Duration.
+$duration: (
+    nav:				0.5s,
+    transition:			0.2s
+);
+
+// Size.
+$size: (
+    border-radius:		4px,
+    element-height:		2.75em,
+    element-margin:		2em,
+    inner:				75em,
+    section-spacing:	4em
+);
+
+// Font.
+$font: (
+    family:				(Arial, Helvetica, sans-serif),
+    family-fixed:		('Courier New', monospace),
+    weight:				normal,
+    weight-bold:		normal,
+    kerning-heading:	-0.0125em,
+    kerning-alt:		0.25em
+);
+
+// Palette.
+{% assign palette = site.palettes[site.palette].sass %}
+$palette: (
+    bg:					#ffffff,
+    bg-alt:				#f7f7f7,
+    fg:					#999999,
+    fg-bold:			#707070,
+    fg-light:			#999999,
+    border:				rgba(144,144,144,0.2),
+    border-bg:			rgba(144,144,144,0.075),
+    border-bg-alt:		rgba(144,144,144,0.15),
+    highlight:			accent1,
+
+    accent1: (
+        bg:				{{ palette.color }},
+        fg:				mix({{ palette.color }}, #ffffff, 25%),
+        fg-bold:		#ffffff,
+        fg-light:		mix({{ palette.color }}, #ffffff, 40%),
+        border:			rgba(255,255,255,0.35),
+        border-bg:		rgba(255,255,255,0.125),
+        border-bg-alt:	rgba(255,255,255,0.15),
+        highlight:		accent1
+    ),
+
+    accent2: (
+        bg:				#303639,
+        fg:				#ffffff,
+        fg-bold:		#ffffff,
+        fg-light:		#ffffff,
+        border:			#ffffff,
+        border-bg:		rgba(255,255,255,0.075),
+        border-bg-alt:	rgba(255,255,255,0.15),
+        highlight:		accent1
+    )
+);
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/vendor';
+@import 'libs/breakpoints';
+@import 'libs/html-grid';
+@import 'font-awesome.min.css';
+
+/*
+	Prototype by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+*/
+
+// Breakpoints.
+
+	@include breakpoints((
+		xlarge:   ( 1281px,  1680px ),
+		large:    ( 981px,   1280px ),
+		medium:   ( 737px,   980px  ),
+		small:    ( 481px,   736px  ),
+		xsmall:   ( 361px,   480px  ),
+		xxsmall:  ( null,    360px  )
+	));
+
+// Mixins.
+
+	@mixin color($p) {
+		@include color-typography($p);
+		@include color-box($p);
+		@include color-button($p);
+		@include color-features($p);
+		@include color-form($p);
+		@include color-icon($p);
+		@include color-image-circles($p);
+		@include color-list($p);
+		@include color-section($p);
+		@include color-spotlights($p);
+		@include color-table($p);
+	}
+
+// Base.
+
+	@import 'base/reset';
+	@import 'base/page';
+	@import 'base/typography';
+
+// Component.
+
+	@import 'components/row';
+	@import 'components/box';
+	@import 'components/button';
+	@import 'components/features';
+	@import 'components/form';
+	@import 'components/icon';
+	@import 'components/image';
+	@import 'components/image-circles';
+	@import 'components/list';
+	@import 'components/actions';
+	@import 'components/icons';
+	@import 'components/section';
+	@import 'components/spotlights';
+	@import 'components/table';
+	@import 'components/wrapper';
+
+// Layout.
+
+	@import 'layout/header';
+	@import 'layout/menu';
+	@import 'layout/banner';
+	@import 'layout/footer';
+	@import 'layout/main';

@@ -1,0 +1,16 @@
+<!-- Banner -->
+<section id="banner">
+    <div class="inner">
+        <div class="content">
+            <h2>{{ page.banner.title }}</h2>
+            {{ page.banner.subtitle | markdownify }}
+        </div>
+        {% if page.banner.actions %}
+            <ul class="actions stacked">
+                {% for action in page.banner.actions %}
+                    <li><a href="{% assign expr_1 = action.url | starts_with: '#' %}{% if expr_1 %}{{ action.url }}{% else %}{{ action.url | link | relative_url }}{% endif %}" class="button{% if action.is_primary %} primary{% endif %}{% if action.is_scrolly %} scrolly{% endif %} major">{{ action.label }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</section>

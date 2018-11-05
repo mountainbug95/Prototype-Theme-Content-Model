@@ -1,0 +1,55 @@
+title: Prototype
+baseurl: /
+menu:
+  actions:
+    - label: Sign Up
+      url: generic.md
+      is_scrolly: false
+      is_primary: true
+    - label: Log In
+      url: generic.md
+      is_scrolly: false
+      is_primary: false
+footer:
+  social_icons:
+    - title: Twitter
+      icon: fa-twitter
+      url: '#'
+    - title: Facebook
+      icon: fa-facebook
+      url: '#'
+    - title: Instagram
+      icon: fa-instagram
+      url: '#'
+    - title: GitHub
+      icon: fa-github
+      url: '#'
+    - title: LinkedIn
+      icon: fa-linkedin
+      url: '#'
+    - title: Email
+      icon: fa-envelope
+      url: '#'
+  contact_list:
+    - text: 12345 Somewhere Road
+    - text: 'Nashville, TN 00000'
+    - text: (000) 000-0000
+  copyright: '&copy; Untitled. All rights reserved. Lorem ipsum dolor.'
+palette: blue
+palettes:
+  blue:
+    sass:
+      color: '#4ea3d8'
+  green:
+    sass:
+      color: '#4dbea0'
+  red:
+    sass:
+      color: '#db6172'
+sass:
+  indentWidth: 4
+  style: nested
+  precision: 10
+plugins:
+  - jekyll-menus
+permalink: '/posts/:slug:output_ext'

@@ -1,0 +1,34 @@
+---
+label: section
+hide_body: true
+is_partial: true
+display_field: identifier
+fields:
+  - type: select
+    name: background_style
+    label: Background Style
+    description: The section background style
+    default: style1
+    config:
+      required: true
+      source:
+        type: custom
+      options:
+        - style1
+        - style2
+  - type: text
+    name: section_id
+    label: Section ID
+    config:
+      required: true
+  - type: text
+    name: identifier
+    label: Section Label
+    description: Used to identify the section (not displayed anywhere on the page)
+    config:
+      required: true
+  - type: text
+    name: component
+    hidden: true
+    config:
+      required: true

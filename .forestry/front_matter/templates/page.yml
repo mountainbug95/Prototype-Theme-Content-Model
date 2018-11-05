@@ -1,0 +1,48 @@
+---
+label: Page
+is_partial: false
+fields:
+  - type: text
+    name: title
+    label: Page Title
+    config:
+      required: true
+  - type: textarea
+    name: subtitle
+    label: Page Subtitle
+    description: The text displayed below the page title
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+  - type: field_group
+    name: content_img
+    label: Content Image
+    description: The image displayed in the content of the page
+    fields:
+      - type: file
+        name: path
+        label: Image
+      - type: select
+        name: position
+        label: Image Placement
+        description: What side of page content the image is displayed on
+        config:
+          source:
+            type: custom
+          options:
+            - left
+            - right
+  - type: text
+    name: layout
+    label: Layout
+    hidden: true
+    default: page
+    config:
+      required: true
+pages:
+  - contact.md
+  - faq.md
+  - generic.md
+  - support.md
+  - terms.md

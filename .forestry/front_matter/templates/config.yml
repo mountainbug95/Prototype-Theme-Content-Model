@@ -1,0 +1,80 @@
+---
+label: Config
+hide_body: true
+is_partial: false
+fields:
+  - type: text
+    name: title
+    label: Title
+    description: Site title
+    config:
+      required: true
+  - type: field_group
+    name: menu
+    label: Menu Configuration
+    fields:
+      - type: field_group_list
+        name: actions
+        label: Menu Action Buttons
+        config:
+          labelField: label
+        fields:
+          - type: include
+            name: include_action
+            label: Include action
+            template: action
+  - type: field_group
+    name: footer
+    label: Footer Configuration
+    fields:
+      - type: field_group_list
+        name: social_icons
+        label: Social Media Icons
+        description: A list of social media icons
+        config:
+          labelField: title
+        fields:
+          - type: text
+            name: title
+            label: Icon title
+            config:
+              required: true
+          - type: text
+            name: icon
+            label: Icon
+            description: Font Awesome icon
+          - type: text
+            name: url
+            label: URL
+      - type: field_group_list
+        name: contact_list
+        label: Contact Information
+        description: A list of contact information displayed below the social media icons
+        config:
+          labelField: text
+        fields:
+          - type: text
+            name: text
+            label: Description
+            description: >-
+              The contact information you would like to be displayed (address,
+              phone number, email, etc.)
+            config:
+              required: true
+      - type: text
+        name: copyright
+        label: Copyright Text
+        description: The copyright text displayed at the bottom of the page footer
+  - type: select
+    name: palette
+    label: Color Palette
+    description: The color palette used for the site
+    default: blue
+    config:
+      required: true
+      source:
+        type: custom
+      options:
+        - blue
+        - green
+        - red

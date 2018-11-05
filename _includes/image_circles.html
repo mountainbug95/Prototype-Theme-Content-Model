@@ -1,0 +1,32 @@
+<!-- One -->
+<section id="{{ include.section.section_id }}" class="wrapper {{ include.section.background_style }} split">
+    <div class="inner">
+        <div class="content">
+            <h2>{{ include.section.title | newline_to_br }}</h2>
+            {{ include.section.text | markdownify }}
+            {% if include.section.actions %}
+                <ul class="actions">
+                    {% for action in include.section.actions %}
+                        <li><a href="{% assign expr_1 = action.url | starts_with: '#' %}{% if expr_1 %}{{ action.url }}{% else %}{{ action.url | link | relative_url }}{% endif %}" class="button{% if action.is_primary %} primary{% endif %}{% if action.is_scrolly %} scrolly{% endif %}">{{ action.label }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <div class="image-circles">
+            {% if include.section.img_row1 %}
+                <div class="images">
+                    {% for image in include.section.img_row1 %}
+                        <span class="image"><img src="{{ image.path | relative_url }}" alt="" /></span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if include.section.img_row2 %}
+                <div class="images">
+                    {% for image in include.section.img_row2 %}
+                        <span class="image"><img src="{{ image.path | relative_url }}" alt="" /></span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
