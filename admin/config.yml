@@ -1,0 +1,533 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: uploads
+public_folder: /uploads
+collections:
+  - name: config
+    label: Config
+    files:
+      - name: config
+        label: Config
+        file: _config.yml
+        fields:
+          - name: title
+            label: Title
+            widget: text
+            required: true
+          - name: menu
+            widget: object
+            required: false
+            label: Menu Configuration
+            fields:
+              - name: actions
+                widget: list
+                required: false
+                label: Menu Action Buttons
+                fields:
+                  - name: label
+                    widget: string
+                    required: true
+                    label: Button Label
+                    hint: The text displayed inside the button
+                  - name: url
+                    widget: string
+                    required: false
+                    label: URL
+                  - name: is_scrolly
+                    widget: boolean
+                    required: false
+                    label: Is Scrolly
+                    default: false
+                    hint: >-
+                      Gives the button a scroll animation (if the URL is a
+                      section ID)
+                  - name: is_primary
+                    widget: boolean
+                    required: false
+                    label: Is Primary
+                    default: false
+                    hint: Gives the button a primary color scheme
+          - name: footer
+            widget: object
+            required: false
+            label: Footer Configuration
+            fields:
+              - name: social_icons
+                widget: list
+                required: false
+                label: Social Media Icons
+                hint: A list of social media icons
+                fields:
+                  - name: title
+                    widget: string
+                    required: true
+                    label: Icon title
+                  - name: icon
+                    widget: string
+                    required: false
+                    label: Icon
+                    hint: Font Awesome icon
+                  - name: url
+                    widget: string
+                    required: false
+                    label: URL
+              - name: contact_list
+                widget: list
+                required: false
+                label: Contact Information
+                hint: >-
+                  A list of contact information displayed below the social media
+                  icons
+                fields:
+                  - name: text
+                    widget: string
+                    required: true
+                    label: Description
+                    hint: >-
+                      The contact information you would like to be displayed
+                      (address, phone number, email, etc.)
+              - name: copyright
+                widget: string
+                required: false
+                label: Copyright Text
+                hint: The copyright text displayed at the bottom of the page footer
+          - name: palette
+            widget: select
+            required: true
+            label: Color Palette
+            default: blue
+            hint: The color palette used for the site
+            options:
+              - blue
+              - green
+              - red
+  - name: home
+    label: Home
+    files:
+      - name: home
+        label: Home
+        file: index.md
+        fields:
+          - name: title
+            widget: string
+            required: true
+            label: Page Title
+          - name: banner
+            widget: object
+            required: false
+            label: Page Banner
+            fields:
+              - name: title
+                widget: string
+                required: false
+                label: Banner Title
+                hint: The first line of text displayed in the banner (bold)
+              - name: subtitle
+                widget: markdown
+                required: false
+                label: Banner Subtitle
+                hint: The text displayed below the banner title
+              - name: actions
+                widget: list
+                required: false
+                label: Banner Action Buttons
+                fields:
+                  - name: label
+                    widget: string
+                    required: true
+                    label: Button Label
+                    hint: The text displayed inside the button
+                  - name: url
+                    widget: string
+                    required: false
+                    label: URL
+                  - name: is_scrolly
+                    widget: boolean
+                    required: false
+                    label: Is Scrolly
+                    default: false
+                    hint: >-
+                      Gives the button a scroll animation (if the URL is a
+                      section ID)
+                  - name: is_primary
+                    widget: boolean
+                    required: false
+                    label: Is Primary
+                    default: false
+                    hint: Gives the button a primary color scheme
+          - name: sections
+            widget: list
+            required: false
+            label: Sections
+            hint: Home Sections
+            widgets:
+              - name: image_circles
+                widget: object
+                label: Image Circles Section
+                fields:
+                  - name: component
+                    widget: hidden
+                    required: true
+                  - name: background_style
+                    widget: select
+                    required: true
+                    label: Background Style
+                    default: style1
+                    hint: The section background style
+                    options:
+                      - style1
+                      - style2
+                  - name: title
+                    widget: text
+                    required: true
+                    label: Section Title
+                    hint: The bold text displayed at the top of the section content
+                  - name: text
+                    widget: markdown
+                    required: false
+                    label: Section Text
+                    hint: The text displayed below the section title
+                  - name: section_id
+                    widget: string
+                    required: true
+                    label: Section ID
+                    default: one
+                  - name: actions
+                    widget: list
+                    required: false
+                    label: Section Action Buttons
+                    fields:
+                      - name: label
+                        widget: string
+                        required: true
+                        label: Button Label
+                        hint: The text displayed inside the button
+                      - name: url
+                        widget: string
+                        required: false
+                        label: URL
+                      - name: is_scrolly
+                        widget: boolean
+                        required: false
+                        label: Is Scrolly
+                        default: false
+                        hint: >-
+                          Gives the button a scroll animation (if the URL is a
+                          section ID)
+                      - name: is_primary
+                        widget: boolean
+                        required: false
+                        label: Is Primary
+                        default: false
+                        hint: Gives the button a primary color scheme
+                  - name: img_row1
+                    widget: list
+                    required: false
+                    label: Top Images
+                    hint: A list of images to be displayed on the top image row
+                    fields:
+                      - name: path
+                        widget: image
+                        required: true
+                        label: Image
+                  - name: img_row2
+                    widget: list
+                    required: false
+                    label: Bottom Images
+                    hint: A list of images to be displayed on the bottom image row
+                    fields:
+                      - name: path
+                        widget: image
+                        required: true
+                        label: Image
+                  - name: identifier
+                    widget: string
+                    required: true
+                    label: Section Label
+                    default: image circles
+                    hint: >-
+                      Used to identify the section (not displayed anywhere on
+                      the page)
+              - name: features
+                widget: object
+                label: Features Section
+                fields:
+                  - name: title
+                    widget: string
+                    required: true
+                    label: Section Title
+                    hint: The bold text displayed at the top of the section
+                  - name: subtitle
+                    widget: markdown
+                    required: false
+                    label: Section Subtitle
+                    hint: The text displayed below the section title
+                  - name: section_id
+                    widget: string
+                    required: true
+                    label: Section ID
+                    default: two
+                  - name: background_style
+                    widget: select
+                    required: true
+                    label: Background Style
+                    default: style2
+                    hint: The section background style
+                    options:
+                      - style1
+                      - style2
+                  - name: features_list
+                    widget: list
+                    required: false
+                    label: Features
+                    hint: A list of features
+                    fields:
+                      - name: title
+                        widget: string
+                        required: true
+                        label: Feature Title
+                      - name: text
+                        widget: markdown
+                        required: false
+                        label: Feature Text
+                        hint: The text displayed below the feature title
+                      - name: icon
+                        widget: string
+                        required: true
+                        label: Feature Icon
+                        hint: >-
+                          (Font Awesome icon) The icon displayed above the
+                          feature title
+                  - name: actions
+                    widget: list
+                    required: false
+                    label: Section Action Buttons
+                    fields:
+                      - name: label
+                        widget: string
+                        required: true
+                        label: Button Label
+                        hint: The text displayed inside the button
+                      - name: url
+                        widget: string
+                        required: false
+                        label: URL
+                      - name: is_scrolly
+                        widget: boolean
+                        required: false
+                        label: Is Scrolly
+                        default: false
+                        hint: >-
+                          Gives the button a scroll animation (if the URL is a
+                          section ID)
+                      - name: is_primary
+                        widget: boolean
+                        required: false
+                        label: Is Primary
+                        default: false
+                        hint: Gives the button a primary color scheme
+                  - name: identifier
+                    widget: string
+                    required: true
+                    label: Section Label
+                    default: features
+                    hint: >-
+                      Used to identify the section (not displayed anywhere on
+                      the page)
+                  - name: component
+                    widget: hidden
+                    required: true
+                    default: features.html
+              - name: spotlights
+                widget: object
+                label: Spotlights Section
+                fields:
+                  - name: background_style
+                    widget: select
+                    required: true
+                    label: Background Style
+                    default: style1
+                    hint: The section background style
+                    options:
+                      - style1
+                      - style2
+                  - name: section_id
+                    widget: string
+                    required: true
+                    label: Section ID
+                    default: three
+                  - name: spotlights_list
+                    widget: list
+                    required: false
+                    label: Spotlights
+                    hint: A list of spotlights to be displayed in the section
+                    fields:
+                      - name: title
+                        widget: string
+                        required: true
+                        label: Spotlight Title
+                        hint: >-
+                          The bold text displayed at the top of the spotlight
+                          content
+                      - name: text
+                        widget: markdown
+                        required: false
+                        label: Spotlight Text
+                        hint: The text displayed below the spotlight title
+                      - name: home_image_path
+                        widget: image
+                        required: false
+                        label: Spotlight Image
+                        hint: The image displayed in the spotlight
+                  - name: identifier
+                    widget: string
+                    required: true
+                    label: Section Label
+                    default: spotlights
+                    hint: >-
+                      Used to identify the section (not displayed anywhere on
+                      the page)
+                  - name: component
+                    widget: hidden
+                    required: true
+                    default: spotlights.html
+              - name: cta
+                widget: object
+                label: CTA Section
+                fields:
+                  - name: title
+                    widget: string
+                    required: true
+                    label: Section Title
+                    hint: The bold text displayed at the top of the section
+                  - name: subtitle
+                    widget: markdown
+                    required: false
+                    label: Section Subtitle
+                    hint: The text displayed below the section title
+                  - name: section_id
+                    widget: string
+                    required: true
+                    label: Section ID
+                    default: four
+                  - name: background_style
+                    widget: select
+                    required: true
+                    label: Background Style
+                    default: style2
+                    hint: The section background style
+                    options:
+                      - style1
+                      - style2
+                  - name: actions
+                    widget: list
+                    required: false
+                    label: Section Action Buttons
+                    fields:
+                      - name: label
+                        widget: string
+                        required: true
+                        label: Button Label
+                        hint: The text displayed inside the button
+                      - name: url
+                        widget: string
+                        required: false
+                        label: URL
+                      - name: is_scrolly
+                        widget: boolean
+                        required: false
+                        label: Is Scrolly
+                        default: false
+                        hint: >-
+                          Gives the button a scroll animation (if the URL is a
+                          section ID)
+                      - name: is_primary
+                        widget: boolean
+                        required: false
+                        label: Is Primary
+                        default: false
+                        hint: Gives the button a primary color scheme
+                  - name: identifier
+                    widget: string
+                    required: true
+                    label: Section Label
+                    default: cta
+                    hint: >-
+                      Used to identify the section (not displayed anywhere on
+                      the page)
+                  - name: component
+                    widget: hidden
+                    required: true
+                    default: cta.html
+          - name: layout
+            widget: hidden
+            required: true
+            label: Layout
+            default: home
+  - name: page
+    label: Pages
+    folder: /
+    filter:
+      field: layout
+      value: page
+    create: true
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - name: title
+        widget: string
+        required: true
+        label: Page Title
+      - name: subtitle
+        widget: markdown
+        required: false
+        label: Page Subtitle
+        hint: The text displayed below the page title
+      - name: content_img
+        widget: object
+        required: false
+        label: Content Image
+        hint: The image displayed in the content of the page
+        fields:
+          - name: path
+            widget: image
+            required: false
+            label: Image
+          - name: position
+            widget: select
+            required: false
+            label: Image Placement
+            hint: What side of page content the image is displayed on
+            options:
+              - left
+              - right
+      - name: layout
+        widget: hidden
+        required: true
+        label: Layout
+        default: page
+      - name: body
+        label: Content
+        widget: markdown
+  - name: elements
+    label: Elements
+    files:
+      - name: elements
+        label: Elements
+        file: elements.md
+        fields:
+          - name: title
+            widget: string
+            required: true
+            label: Page Title
+          - name: subtitle
+            widget: markdown
+            required: false
+            label: Page Subtitle
+            hint: The text displayed below the page title
+          - name: layout
+            widget: hidden
+            required: true
+            label: Layout
+            default: elements

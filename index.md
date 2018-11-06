@@ -36,7 +36,7 @@ sections:
       - path: images/pic04.jpg
     identifier: image circles
     component: image_circles.html
-    template: image_circles
+    widget: image_circles
   - title: Gravida nunc accumsan
     subtitle: >-
       Ipsum quis semper consequat, sem nibh mattis arcu, quis porttitor lorem
@@ -83,7 +83,7 @@ sections:
         is_primary: false
     identifier: features
     component: features.html
-    template: features
+    widget: features
   - background_style: style1
     section_id: three
     spotlights_list:
@@ -113,7 +113,7 @@ sections:
         home_image_path: images/pic07.jpg
     identifier: spotlights
     component: spotlights.html
-    template: spotlights
+    widget: spotlights
   - title: Sed vitae massa curabitur
     subtitle: >-
       Ipsum quis semper consequat, sem nibh mattis arcu, quis porttitor lorem
@@ -129,7 +129,7 @@ sections:
         is_primary: true
     identifier: cta
     component: cta.html
-    template: cta
+    widget: cta
 menus:
   main:
     title: Home
