@@ -4,11 +4,6 @@ hide_body: true
 is_partial: true
 display_field: identifier
 fields:
-  - type: text
-    name: component
-    hidden: true
-    config:
-      required: true
   - type: select
     name: background_style
     label: Background Style
@@ -21,6 +16,11 @@ fields:
       options:
         - style1
         - style2
+  - type: text
+    name: component
+    hidden: true
+    config:
+      required: true
   - type: textarea
     name: title
     label: Section Title
@@ -49,7 +49,7 @@ fields:
     fields:
       - type: include
         name: include_action
-        label: Include action
+        label: Action
         template: action
   - type: field_group_list
     name: img_row1
