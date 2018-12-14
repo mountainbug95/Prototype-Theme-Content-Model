@@ -34,7 +34,6 @@ sections:
     img_row2:
       - path: images/pic03.jpg
       - path: images/pic04.jpg
-    identifier: image circles
     component: image_circles.html
     template: image_circles
   - title: Gravida nunc accumsan
@@ -81,7 +80,6 @@ sections:
         url: generic.md
         is_scrolly: false
         is_primary: false
-    identifier: features
     component: features.html
     template: features
   - background_style: style1
@@ -111,7 +109,6 @@ sections:
           a augue. Pellentesque habitant morbi tristique senectus et netus et
           malesuada.
         home_image_path: images/pic07.jpg
-    identifier: spotlights
     component: spotlights.html
     template: spotlights
   - title: Sed vitae massa curabitur
@@ -127,7 +124,6 @@ sections:
         url: generic.md
         is_scrolly: false
         is_primary: true
-    identifier: cta
     component: cta.html
     template: cta
 menus:

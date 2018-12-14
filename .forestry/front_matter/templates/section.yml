@@ -2,8 +2,16 @@
 label: section
 hide_body: true
 is_partial: true
-display_field: identifier
+display_field: title
 fields:
+  - type: textarea
+    name: title
+    label: Section Title
+    description: >-
+      The section title (Also used by the CMS, even if no title is displayed in
+      the section)
+    config:
+      required: true
   - type: select
     name: background_style
     label: Background Style
@@ -19,12 +27,6 @@ fields:
   - type: text
     name: section_id
     label: Section ID
-    config:
-      required: true
-  - type: text
-    name: identifier
-    label: Section Label
-    description: Used to identify the section (not displayed anywhere on the page)
     config:
       required: true
   - type: text

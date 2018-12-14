@@ -2,7 +2,7 @@
 label: Image Circles Section
 hide_body: true
 is_partial: true
-display_field: identifier
+display_field: title
 fields:
   - type: select
     name: background_style
@@ -25,7 +25,10 @@ fields:
   - type: textarea
     name: title
     label: Section Title
-    description: The bold text displayed at the top of the section content
+    description: >-
+      The section title (Also used by the CMS, even if no title is displayed in
+      the section)
+    default: Image Circles
     config:
       required: true
   - type: textarea
@@ -76,10 +79,3 @@ fields:
         label: Image
         config:
           required: true
-  - type: text
-    name: identifier
-    label: Section Label
-    description: Used to identify the section (not displayed anywhere on the page)
-    default: image circles
-    config:
-      required: true
