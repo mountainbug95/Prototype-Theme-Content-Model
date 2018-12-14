@@ -82,7 +82,8 @@ sections:
         is_primary: false
     component: features.html
     template: features
-  - background_style: style1
+  - title: Spotlights Section
+    background_style: style1
     section_id: three
     spotlights_list:
       - title: Convallis integer iaculis
